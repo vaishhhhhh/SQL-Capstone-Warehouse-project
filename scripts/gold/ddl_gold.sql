@@ -1,4 +1,3 @@
-
 /*
 Gold layer: star schema views for reporting.
 Creates the two dimension views first, then the fact view that joins to them.
