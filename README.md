@@ -31,6 +31,7 @@ scripts/
 tests/
   quality_checks_silver.sql
   quality_checks_gold.sql
+analytics/           exploratory analysis and reporting views
 ```
 
 ## How to run
@@ -42,6 +43,23 @@ tests/
 5. `scripts/silver/proc_load_silver.sql`: create the load procedure, then run `EXEC silver.load_silver;`
 6. `scripts/gold/ddl_gold.sql`: create the gold views
 7. `tests/quality_checks_silver.sql` and `tests/quality_checks_gold.sql`: verify the data
+8. `analytics/`: run the analysis queries, and create the report views (files 06 and 07)
+
+## Analytics
+
+SQL analysis on the gold layer, in `analytics/`:
+
+| File | Question it answers |
+|---|---|
+| `01_change_over_time_analysis.sql` | How do sales, customers and quantity change month by month? |
+| `02_cumulative_analysis.sql` | What is the running total of sales and the moving average price by year? |
+| `03_performance_analysis.sql` | How does each product's yearly sales compare to its own average and to the previous year? |
+| `04_part_to_whole_analysis.sql` | Which categories contribute the most to overall sales? |
+| `05_data_segmentation.sql` | How many products fall in each cost range, and how many customers are VIP, Regular or New? |
+| `06_report_customers.sql` | `gold.report_customers`: customer segments, age groups, recency, average order value and monthly spend |
+| `07_report_products.sql` | `gold.report_products`: product segments, recency, average order revenue and monthly revenue |
+
+The two report views are ready to connect to Power BI.
 
 ## Data quality checks
 
